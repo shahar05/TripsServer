@@ -9,7 +9,7 @@ const app = express();
 try {
     mongoose.connect('mongodb://localhost:27017/trip_app', { useNewUrlParser: true });    
 } catch (error) {
-    console.log("failed connectd to db!!");
+    console.error("failed connectd to db!!");
     console.log(error);
     
 }
