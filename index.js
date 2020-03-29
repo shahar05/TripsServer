@@ -4,7 +4,7 @@ var cors = require("cors");
 var mongoose = require('mongoose');
 var Trip = require('./trip');
 var myTrips;
-
+var port = process.env.PORT || 3000;
 const app = express();
 
 
@@ -70,8 +70,9 @@ app.get("*", function (req, res) {
     res.send("you hit the * route");
 });
 
-
-app.listen( 80 ,function (req, res) {
+console.log(`The Port is:  ${port}` );
+app.listen( port ,function (req, res) {
+      
     console.log("server up!");
     
 } );
