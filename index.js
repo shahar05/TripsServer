@@ -7,7 +7,7 @@ var myTrips;
 
 const app = express();
 try {
-    mongoose.connect('mongodb://localhost:27017/trip_app', { useNewUrlParser: true });    
+    mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds031571.mlab.com:31571/trips', { useNewUrlParser: true });    
 } catch (error) {
     console.error("failed connectd to db!!");
     console.log(error);
