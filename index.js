@@ -6,13 +6,14 @@ var Trip = require('./trip');
 var myTrips;
 
 const app = express();
-try {
-    mongoose.connect('mongodb://shahartrip:shahar92@ds031571.mlab.com:31571/trips', { useNewUrlParser: true });    
-} catch (error) {
-    console.error("failed connectd to db!!");
-    console.log(error);
-    
-}
+
+
+    mongoose.connect('mongodb://shahartrip:shahar92@ds031571.mlab.com:31571/trips', { useNewUrlParser: true } , (err)=>{
+        console.error("failed connectd to db!!");
+        console.log(err);
+        
+    });    
+
 
 app.use(cors({ origin: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -70,7 +71,7 @@ app.get("*", function (req, res) {
 });
 
 
-app.listen(3000 ,function (req, res) {
+app.listen( 80 ,function (req, res) {
     console.log("server up!");
     
 });
