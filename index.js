@@ -6,7 +6,14 @@ var Trip = require('./trip');
 var myTrips;
 
 const app = express();
-mongoose.connect('mongodb://localhost:27017/trip_app', { useNewUrlParser: true });
+try {
+    mongoose.connect('mongodb://localhost:27017/trip_app', { useNewUrlParser: true });    
+} catch (error) {
+    console.log("failed connectd to db!!");
+    console.log(error);
+    
+}
+
 app.use(cors({ origin: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
